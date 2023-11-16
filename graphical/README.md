@@ -1,4 +1,6 @@
-# MAD-LAB-12-Design an application that draws basic graphical primitives on the screen.
+
+# Ex.No:12 Design an application that draws basic graphical primitives on the screen.
+
 
 ## AIM:
 
@@ -10,7 +12,7 @@ Android Studio(Latest Version)
 
 ## ALGORITHM:
 
-Step 1: Open Android Studio and then click on File -> New -> New project.
+Step 1: Open Android Stdio and then click on File -> New -> New project.
 
 Step 2: Then type the Application name as “graphical″ and click Next. 
 
@@ -28,20 +30,20 @@ Step 7: Save and run the application.
 ```
 /*
 Program to create and design an android application that draws basic graphical primitives on the screen.
-Developed by: AATHISH S
-Registration Number: 212221040002
+Developed by:AATHISH S
+Registeration Number :212221040002
 */
 ```
-activity_main.xml :
+## activity_main.xml
 ```
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="413dp"
@@ -53,12 +55,10 @@ activity_main.xml :
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
-MainActivity.java :
+## MainActivity.xml
 ```
 package com.example.graphicalprimitives;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -66,50 +66,40 @@ import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.widget.ImageView;
-
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //Creating a Bitmap
         Bitmap bg = Bitmap.createBitmap(720, 1280, Bitmap.Config.ARGB_8888);
-
-        //Setting the Bitmap as background for the ImageView
         ImageView i = (ImageView) findViewById(R.id.imageView);
         i.setBackgroundDrawable(new BitmapDrawable(bg));
-
-        //Creating the Canvas Object
         Canvas canvas = new Canvas(bg);
-
-        //Creating the Paint Object and set its color & TextSize
         Paint paint = new Paint();
         paint.setColor(Color.BLUE);
         paint.setTextSize(50);
 
-        //To draw a Rectangle
         canvas.drawText("Rectangle", 420, 150, paint);
         canvas.drawRect(400, 200, 650, 700, paint);
 
-        //To draw a Circle
         canvas.drawText("Circle", 120, 150, paint);
         canvas.drawCircle(200, 350, 150, paint);
 
-        //To draw a Square
         canvas.drawText("Square", 120, 800, paint);
         canvas.drawRect(50, 850, 350, 1150, paint);
 
-        //To draw a Line
         canvas.drawText("Line", 480, 800, paint);
         canvas.drawLine(520, 850, 520, 1150, paint);
     }
 }
 ```
+
 ## OUTPUT
 
-![image](https://github.com/Siddarthan999/MAD-LAB-12-Design-an-Application-that-Draws-Basic-Graphical-Primitives-on-the-Screen/assets/91734840/c4e63200-3dd8-4cd3-a25b-b55f8f3da5f5)
-![image](https://github.com/Siddarthan999/MAD-LAB-12-Design-an-Application-that-Draws-Basic-Graphical-Primitives-on-the-Screen/assets/91734840/23446676-6e44-4d0d-ada4-c01d57ae90e7)
+
+![image](https://github.com/Naveen-154/Mobile-Application-Development/assets/114643271/a6c2b6f3-b015-408f-8f53-ea2feea40e43)
+
+
 
 ## RESULT
-Thus, a Simple Android Application to create and design an android application that draws basic graphical primitives on the screen using Android Studio is developed and executed successfully.
+Thus a Simple Android Application to create and design an android application that draws basic graphical primitives on the screen using Android Studio is developed and executed successfully.
