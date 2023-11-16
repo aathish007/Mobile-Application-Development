@@ -1,4 +1,5 @@
-# MAD-EXP-11-Develop a application to add animations to ImageView,Move,blink,fade,clockwise,zoom,slide operations are perform in android studio.
+# Ex.No: 11 Develop a application to add animations to ImageView,Move,blink,fade,clockwise,zoom,slide operations are perform in android studio.
+
 
 ## AIM:
 
@@ -9,177 +10,189 @@ To develop a application to add animation to imageview,move,blink,fade,clockwise
 Android Studio(Latest Version)
 
 ## ALGORITHM:
+```
 
 Step 1: Open Android Studio and then click on File -> New -> New project.
-
-Step 2: Then type the Application name as HelloWorld and click Next. 
-
+Step 2: Then type the Application name as HelloWorld and click Next.
 Step 3: Then select the Minimum SDK as shown below and click Next.
-
 Step 4: Then select the Empty Activity and click Next. Finally click Finish.
-
 Step 5: Design layout in activity_main.xml.
-
 Step 6: Display message give in MainActivity file.
-
 Step 7: Save and run the application.
+```
 
 ## PROGRAM:
 ```
 /*
 Program to display animation operation”.
-Developed by: S AATHISH
-Registration Number: 212221040002
+Developed by:AATHISH S
+Registeration Number :212221040002
 */
 ```
-activity_main.xml :
+## activity_main.xml
 ```
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="234dp"
-        android:layout_height="149dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.199"
-        app:srcCompat="@drawable/rick" />
+        android:id="@+id/imageview"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/gfgimage" />
 
-    <Button
-        android:id="@+id/BTNblink"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linear1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="BLINK"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.151"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.538" />
+        android:layout_below="@id/imageview"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
 
-    <Button
-        android:id="@+id/BTNrotate"
-        android:layout_width="wrap_content"
+        <!--To start the blink animation of the image-->
+        <Button
+            android:id="@+id/BTNblink"
+            style="@style/TextAppearance.AppCompat.Widget.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:padding="3dp"
+            android:text="@string/blink"
+            android:textColor="@color/white" />
+
+        <!--To start the rotate animation of the image-->
+        <Button
+            android:id="@+id/BTNrotate"
+            style="@style/TextAppearance.AppCompat.Widget.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:padding="3dp"
+            android:text="@string/clockwise"
+            android:textColor="@color/white" />
+
+        <!--To start the fading animation of the image-->
+        <Button
+            android:id="@+id/BTNfade"
+            style="@style/TextAppearance.AppCompat.Widget.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:padding="3dp"
+            android:text="@string/fade"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linear2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ROTATE"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.538" />
+        android:layout_below="@id/linear1"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
 
-    <Button
-        android:id="@+id/BTNfade"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="FADE"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.848"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.538" />
+        <!--To start the move animation of the image-->
+        <Button
+            android:id="@+id/BTNmove"
+            style="@style/TextAppearance.AppCompat.Widget.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:padding="3dp"
+            android:text="@string/move"
+            android:textColor="@color/white" />
 
-    <Button
-        android:id="@+id/BTNmove"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MOVE"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.151"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.642" />
+        <!--To start the slide animation of the image-->
+        <Button
+            android:id="@+id/BTNslide"
+            style="@style/TextAppearance.AppCompat.Widget.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:padding="3dp"
+            android:text="@string/slide"
+            android:textColor="@color/white" />
 
-    <Button
-        android:id="@+id/BTNslide"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SLIDE"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.642" />
+        <!--To start the zoom animation of the image-->
+        <Button
+            android:id="@+id/BTNzoom"
+            style="@style/TextAppearance.AppCompat.Widget.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:padding="3dp"
+            android:text="@string/zoom"
+            android:textColor="@color/white" />
 
-    <Button
-        android:id="@+id/BTNzoom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ZOOM"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.848"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.642" />
+    </LinearLayout>
 
+    <!--To stop the animation of the image-->
     <Button
         android:id="@+id/BTNstop"
-        android:layout_width="380dp"
-        android:layout_height="51dp"
-        android:text="STOP ANIMATION"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.772" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear2"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+        android:text="@string/stop_animation" />
+
+</RelativeLayout>
 ```
-blink.xml :
-```
-<?xml version="1.0" encoding="utf-8"?>
-<set xmlns:android="http://schemas.android.com/apk/res/android">
-    <alpha android:fromAlpha="0.0"
-        android:toAlpha="1.0"
-        android:interpolator="@android:anim/accelerate_interpolator"
-        android:duration="500"
-        android:repeatMode="reverse"
-        android:repeatCount="infinite"/>
-</set>
-```
-fade.xml :
+## fade_animation.xml
 ```
 <?xml version="1.0" encoding="utf-8"?>
-<set xmlns:android="http://schemas.android.com/apk/res/android">
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/accelerate_interpolator">
+
     <!-- duration is the time for which animation will work-->
     <alpha
         android:duration="1000"
         android:fromAlpha="0"
         android:toAlpha="1" />
+
     <alpha
         android:duration="1000"
         android:fromAlpha="1"
         android:startOffset="2000"
         android:toAlpha="0" />
+
 </set>
 ```
-move.xml :
+## move_animation.xml
 ```
 <?xml version="1.0" encoding="utf-8"?>
-<set xmlns:android="http://schemas.android.com/apk/res/android">
+<set
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/linear_interpolator"
+    android:fillAfter="true">
+
     <translate
         android:fromXDelta="0%p"
         android:toXDelta="75%p"
         android:duration="700" />
 </set>
 ```
-rotate.xml :
+## rotate_animation.xml
 ```
 <?xml version="1.0" encoding="utf-8"?>
-<set xmlns:android="http://schemas.android.com/apk/res/android">
+<set
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <rotate
         android:duration="6000"
         android:fromDegrees="0"
@@ -194,12 +207,14 @@ rotate.xml :
         android:pivotY="50%"
         android:startOffset="5000"
         android:toDegrees="0" />
+
 </set>
 ```
-slide.xml :
+## slide_animation.xml
 ```
 <?xml version="1.0" encoding="utf-8"?>
-<set xmlns:android="http://schemas.android.com/apk/res/android">
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillAfter="true" >
     <scale
         android:duration="500"
         android:fromXScale="1.0"
@@ -209,7 +224,7 @@ slide.xml :
         android:toYScale="0.0" />
 </set>
 ```
-zoom.xml :
+## zoom_animation.xml
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <set xmlns:android="http://schemas.android.com/apk/res/android">
@@ -234,10 +249,36 @@ zoom.xml :
     </scale>
 </set>
 ```
-MainActivity.java :
+## blink_animation.xml
+```
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <alpha android:fromAlpha="0.0"
+        android:toAlpha="1.0"
+        android:interpolator="@android:anim/accelerate_interpolator"
+        android:duration="500"
+        android:repeatMode="reverse"
+        android:repeatCount="infinite"/>
+</set>
+```
+## strings.xml
+```
+<resources>
+    <string name="app_name">GFG App</string>
+    <string name="blink">BLINK</string>
+    <string name="clockwise">ROTATE</string>
+    <string name="fade">FADE</string>
+    <string name="move">MOVE</string>
+    <string name="slide">SLIDE</string>
+    <string name="zoom">ZOOM</string>
+    <string name="stop_animation">STOP ANIMATION</string>
+    <string name="course_rating">Course Rating</string>
+    <string name="course_name">Course Name</string>
+</resources>
+```
+## MainActivity.java
 ```
 package com.example.animation;
-
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -245,7 +286,9 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+
 public class MainActivity extends AppCompatActivity {
+
     ImageView imageView;
     Button blinkBTN, rotateBTN, fadeBTN, moveBTN, slideBTN, zoomBTN, stopBTN;
 
@@ -253,7 +296,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        imageView = findViewById(R.id.imageView);
+        imageView = findViewById(R.id.imageview);
         blinkBTN = findViewById(R.id.BTNblink);
         rotateBTN = findViewById(R.id.BTNrotate);
         fadeBTN = findViewById(R.id.BTNfade);
@@ -266,7 +309,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // To add blink animation
-                Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink);
+                Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink_animation);
                 imageView.startAnimation(animation);
             }
         });
@@ -275,7 +318,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // To add rotate animation
-                Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
+                Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate_animation);
                 imageView.startAnimation(animation);
             }
         });
@@ -283,7 +326,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // To add fade animation
-                Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade);
+                Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_animation);
                 imageView.startAnimation(animation);
             }
         });
@@ -291,7 +334,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // To add move animation
-                Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.move);
+                Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.move_animation);
                 imageView.startAnimation(animation);
             }
         });
@@ -299,7 +342,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // To add slide animation
-                Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide);
+                Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_animation);
                 imageView.startAnimation(animation);
             }
         });
@@ -307,7 +350,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // To add zoom animation
-                Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom);
+                Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_animation);
                 imageView.startAnimation(animation);
             }
         });
@@ -319,13 +362,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 }
 ```
+
 ## OUTPUT
-![image](https://github.com/Siddarthan999/MAD-EXP-11-Develop-a-Application-to-Add-Animations-to-ImageView-in-Android-Studio/assets/91734840/0bced69d-8643-4668-83ac-8a7867b03d2e)
-![image](https://github.com/Siddarthan999/MAD-EXP-11-Develop-a-Application-to-Add-Animations-to-ImageView-in-Android-Studio/assets/91734840/4a96cdf9-2559-445e-9270-50d08512dc2c)
-![image](https://github.com/Siddarthan999/MAD-EXP-11-Develop-a-Application-to-Add-Animations-to-ImageView-in-Android-Studio/assets/91734840/72e55366-1e1d-41b6-a66a-7a2de6b89509)
+![image](https://github.com/Naveen-154/Mobile-Application-Development/assets/114643271/f5b548dd-2364-4e93-b04d-8ff456d120df)
+![image](https://github.com/Naveen-154/Mobile-Application-Development/assets/114643271/af309f5a-a4c5-4cf4-8f89-96448994d5c4)
+![image](https://github.com/Naveen-154/Mobile-Application-Development/assets/114643271/74a9f081-afb4-4c47-8c83-de1d8e5c9fd3)
+
+
+
+
 
 ## RESULT
-Thus, to develop a application to add animation to imageview,move,blink,fade,clockwise,zoom,slide operation using Android Studio has been executed successfully.
+```
+Thus, to develop an application to add animation to imageview, move, blink, fade, clockwise, zoom, slide operation using Android Studio has been executed successfully.
+```
