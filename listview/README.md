@@ -27,134 +27,171 @@ Step 6: Get contacts details and Display details give in MainActivity file.
 Step 7: Save and run the application.
 
 ## PROGRAM:
-## activity_main.xml:
 ```
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"         
-xmlns:tools="http://schemas.android.com/tools"          
-android:layout_width="match_parent"          
-android:layout_height="match_parent"         
-tools:context=".MainActivity">
-
-<ListView
-    android:id="@+id/simpleListView"
+/*
+Program to print the list of item.
+Developed by: AATHISH S
+Registeration Number :212221040002
+*/
+```
+## activity_main.xml
+```
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="300dp"
-    android:divider="@color/material_blue_grey_800"
-    android:dividerHeight="1dp"
-    android:footerDividersEnabled="false" />
-</LinearLayout>
-    
-```
-## List_view:
-```
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"        
-android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
 
-<ImageView
-    android:id="@+id/icon"
-    android:layout_width="50dp"
-    android:layout_height="50dp" />
-<TextView
-    android:id="@+id/textView"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:textColor="@color/black" />
- </LinearLayout>
-
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
 ```
-## Main_Activity.java:
+## MainActivity.java
 ```
-package com.example.placename;
-
+package com.example.listview;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
-
+import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
+    ListView list;
+    String[] maintitle ={
+            "AMERICA","AUSTRALIA",
+            "FRANCE","GERMANY",
+            "INDIA","JAPAN",
+            "KOREA","UK"
+    };
+    Integer[] imgid={
+            R.drawable.america,R.drawable.australia,
+            R.drawable.france,R.drawable.germany,
+            R.drawable.india,R.drawable.japan,
+            R.drawable.korea,R.drawable.uk
 
-ListView simpleList;
-String countryList[] = {"Bangalore", "Chennai", "Coimbatore", "KanyaKumari", "Kerala", "Mumbai"};
-int flags[] = {R.drawable.bangalore, R.drawable.chennai, R.drawable.coimbatore, R.drawable.kanyakumari,
-        R.drawable.kerala, R.drawable.mumbai};
+    };
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        MyListAdapter adapter=new MyListAdapter(this, maintitle,imgid);
+        list=(ListView)findViewById(R.id.list);
+        list.setAdapter(adapter);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(position == 0) {
+                    Toast.makeText(getApplicationContext(),"Place Your First Option Code",Toast.LENGTH_SHORT).show();
+                }
+                else if(position == 1) {
+                    Toast.makeText(getApplicationContext(),"Place Your Second Option Code",Toast.LENGTH_SHORT).show();
+                }
+                else if(position == 2) {
+                    Toast.makeText(getApplicationContext(),"Place Your Third Option Code",Toast.LENGTH_SHORT).show();
+                }
+                else if(position == 3) {
+                    Toast.makeText(getApplicationContext(),"Place Your Forth Option Code",Toast.LENGTH_SHORT).show();
+                }
+                else if(position == 4) {
+                    Toast.makeText(getApplicationContext(),"Place Your Fifth Option Code",Toast.LENGTH_SHORT).show();
+                }
+            }
 
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
-
-    simpleList = findViewById(R.id.simpleListView);
-
-    CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), countryList, flags);
-    simpleList.setAdapter(customAdapter);
-}
+        });
+    }
 }
 ```
-## Anbdroid_Manifest.xml:
+## mylist.xml
 ```
-package com.example.placename;
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.076"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.053" />
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.382"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.063">
+        <TextView
 
-import android.content.Context;
-import android.media.Image;
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:padding="2dp"
+            android:text="Medium Text"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#4d4d4d"
+            android:textStyle="bold" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+## MyListAdapter.java
+```
+package com.example.listview;
+import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import java.util.zip.Inflater;
-
-public class CustomAdapter extends BaseAdapter { Context context; String countryList[]; int flags[]; LayoutInflater inflter;
-
-public CustomAdapter(Context applicationContext, String[] countryList, int[] flags) {
-    this.context = applicationContext;
-    this.countryList = countryList;
-    this.flags = flags;
-    inflter = (LayoutInflater.from(applicationContext));
-}
-
-@Override
-public int getCount() {
-    return countryList.length;
-}
-
-@Override
-public Object getItem(int i) {
-    return null;
-}
-
-@Override
-public long getItemId(int i) {
-    return 0;
-}
-
-@Override
-public View getView(int i, View view, ViewGroup viewGroup) {
-    view = inflter.inflate(R.layout.listview, null);
-    TextView country = (TextView) view.findViewById(R.id.textView);
-    ImageView icon = (ImageView) view.findViewById(R.id.icon);
-    country.setText(countryList[i]);
-    icon.setImageResource(flags[i]);
-    return view;
-}
+public class MyListAdapter extends ArrayAdapter<String> {
+    private final Activity context;
+    private final String[] maintitle;
+    private final Integer[] imgid;
+    public MyListAdapter(Activity context, String[] maintitle, Integer[] imgid) {
+        super(context, R.layout.mylist, maintitle);
+// TODO Auto-generated constructorstub
+        this.context=context;
+        this.maintitle=maintitle;
+        this.imgid=imgid;
+    }
+    public View getView(int position,View view,ViewGroup parent) {
+        LayoutInflater inflater=context.getLayoutInflater();
+        View rowView=inflater.inflate(R.layout.mylist, null,true);
+        TextView titleText = (TextView) rowView.findViewById(R.id.title);
+        ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
+        titleText.setText(maintitle[position]);
+        imageView.setImageResource(imgid[position]);
+        return rowView;
+    };
 }
 ```
-Program to print the list of item.
-
-Developed by: Anbuselvan A
-
-Registeration Number : 212221040013
-
 
 ## OUTPUT
 
-![AM](https://github.com/Anbuselvan04/Mobile-Application-Development/assets/119410896/fa227b37-e82b-4d2d-89ec-22ed04749d6f)
-![CA](https://github.com/Anbuselvan04/Mobile-Application-Development/assets/119410896/05f4b18e-b810-436b-bd7e-cc9245f61b86)
-![LV](https://github.com/Anbuselvan04/Mobile-Application-Development/assets/119410896/b2dc2e76-a8a5-40da-89fd-0d3e7c91c995)
-![MA](https://github.com/Anbuselvan04/Mobile-Application-Development/assets/119410896/dbf7eecd-4c9c-446f-b9dc-a2d13e982182)
-![OP](https://github.com/Anbuselvan04/Mobile-Application-Development/assets/119410896/edae7630-798a-45df-9849-a905f90ac6f3)
+![image](https://github.com/Naveen-154/Mobile-Application-Development/assets/114643271/8b738a75-3eb1-4851-8f46-22ab351cabb5)
 
 
 
