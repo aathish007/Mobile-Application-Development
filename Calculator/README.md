@@ -25,185 +25,237 @@ Step 6: Display the calculator operation in MainActivity file.
 Step 7: Save and run the application.
 
 ## PROGRAM:
-## activity_main.xml:
 ```
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"         
-android:layout_width="match_parent"         
-android:layout_height="match_parent"         
-android:orientation="vertical"          
-android:padding="16dp"         
-tools:context=".MainActivity">
-
-<EditText
-    android:id="@+id/number1EditText"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:inputType="number"
-    android:hint="Enter number 1" />
-
-<EditText
-    android:id="@+id/number2EditText"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:inputType="number"
-    android:hint="Enter number 2" />
-
-<Button
-    android:id="@+id/addButton"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Add" />
-
-<Button
-    android:id="@+id/subtractButton"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Subtract" />
-
-<Button
-    android:id="@+id/multiplyButton"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Multiply" />
-
-<Button
-    android:id="@+id/divideButton"
-    android:layout_width="380dp"
-    android:layout_height="wrap_content"
-    android:text="Divide" />
-
-<TextView
-    android:id="@+id/resultTextView"
-    android:layout_width="385dp"
-    android:layout_height="51dp"
-    android:paddingTop="16dp"
-    android:textSize="25dp" />
+/*
+Program to print the text “calculator operation”.
+Developed by:AATHISH S
+Registeration Number :21221040002
+*/
 ```
-## Main_Activity.java
+## activitymain.xml
+```
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/txt2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Second Number"
+        android:inputType="numberDecimal"
+        android:textColorHint="#8D6E63"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.271"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/txt1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="First Number"
+        android:inputType="numberDecimal"
+        android:textColorHint="#8D6E63"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.185"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="404dp"
+        android:layout_height="24dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.366" />
+    <Button
+        android:id="@+id/btnsubs"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:text="-"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.359"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.466" />
+    <Button
+        android:id="@+id/btndiv"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:text="/"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.466" />
+    <Button
+        android:id="@+id/btnadd"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:text="+"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.466" />
+    <Button
+        android:id="@+id/btnmult"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:text="*"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.628"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.466" />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SIMPLE CALCULATOR"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.073" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+## MainActivity.java
 ```
 package com.example.calculator;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-
 import android.view.View;
-
 import android.widget.Button;
-
 import android.widget.EditText;
-
 import android.widget.TextView;
-
 import android.widget.Toast;
-
 public class MainActivity extends AppCompatActivity {
-
-private EditText number1EditText, number2EditText;
-private Button addButton, subtractButton, multiplyButton, divideButton;
-private TextView resultTextView;
-
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
-
-    number1EditText = findViewById(R.id.number1EditText);
-    number2EditText = findViewById(R.id.number2EditText);
-    addButton = findViewById(R.id.addButton);
-    subtractButton = findViewById(R.id.subtractButton);
-    multiplyButton = findViewById(R.id.multiplyButton);
-    divideButton = findViewById(R.id.divideButton);
-    resultTextView = findViewById(R.id.resultTextView);
-
-    addButton.setOnClickListener(new View.OnClickListener() {
-    
-        @Override
-        public void onClick(View v) {
-            calculateResult("+");
-        }
-    });
-
-    subtractButton.setOnClickListener(new View.OnClickListener() {
-    
-        @Override
-        public void onClick(View v) {
-            calculateResult("-");
-        }
-    });
-
-    multiplyButton.setOnClickListener(new View.OnClickListener() {
-    
-        @Override
-        public void onClick(View v) {
-            calculateResult("*");
-        }
-    });
-
-    divideButton.setOnClickListener(new View.OnClickListener() {
-    
-        @Override
-        public void onClick(View v) {
-            calculateResult("/");
-        }
-    });
-}
-
-private void calculateResult(String operator) {
-
-    String number1Str = number1EditText.getText().toString();
-    String number2Str = number2EditText.getText().toString();
-
-    if (number1Str.isEmpty() || number2Str.isEmpty()) {
-        Toast.makeText(MainActivity.this, "Please enter both numbers", Toast.LENGTH_SHORT).show();
-        return;
-    }
-
-    double number1 = Double.parseDouble(number1Str);
-    
-    double number2 = Double.parseDouble(number2Str);
-
-    double result = 0;
-
-    switch (operator) {
-        case "+":
-            result = number1 + number2;
-            break;
-        case "-":
-            result = number1 - number2;
-            break;
-        case "*":
-            result = number1 * number2;
-            break;
-        case "/":
-            if (number2 == 0) {
-                Toast.makeText(MainActivity.this, "Cannot divide by zero", Toast.LENGTH_SHORT).show();
-                return;
+    Button btnadd,btnsubs,btnmult,btndiv;
+    EditText txt1,txt2;
+    TextView result;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);btnadd=findViewById(R.id.btnadd);
+        btnsubs=findViewById(R.id.btnsubs);
+        btndiv=findViewById(R.id.btndiv);
+        btnmult=findViewById(R.id.btnmult);
+        txt1=findViewById(R.id.txt1);
+        txt2=findViewById(R.id.txt2);
+        result=findViewById(R.id.result);
+        btnadd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (txt1.getText().toString().equals("")) {
+                    Toast.makeText(MainActivity.this, "Please Enter Number",
+                            Toast.LENGTH_SHORT).show();
+                } else if (txt2.getText().toString().equals("")) {
+                    Toast.makeText(MainActivity.this, "Please Enter Number",
+                            Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    float a, b, c;
+                    a = Float.parseFloat(txt1.getText().toString());
+                    b = Float.parseFloat(txt2.getText().toString());
+                    c = a + b;
+                    result.setText("The Addition Result Is " + c);
+                }
             }
-            result = number1 / number2;
-            break;
+        });
+        btnsubs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (txt1.getText().toString().equals("")) {
+                    Toast.makeText(MainActivity.this, "Please Enter Number",
+                            Toast.LENGTH_SHORT).show();
+                } else if (txt2.getText().toString().equals("")) {
+                    Toast.makeText(MainActivity.this, "Please Enter Number",
+                            Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    float a, b, c;
+                    a = Float.parseFloat(txt1.getText().toString());
+                    b = Float.parseFloat(txt2.getText().toString());
+                    c = a - b;
+                    result.setText("The Subtraction Result Is " + c);
+                }
+            }
+        });
+        btnmult.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (txt1.getText().toString().equals("")) {
+                    Toast.makeText(MainActivity.this, "Please Enter Number",
+                            Toast.LENGTH_SHORT).show();
+                } else if (txt2.getText().toString().equals("")) {
+                    Toast.makeText(MainActivity.this, "Please Enter Number",
+                            Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    float a, b, c;
+                    a = Float.parseFloat(txt1.getText().toString());
+                    b = Float.parseFloat(txt2.getText().toString());
+                    c = a*b;
+                    result.setText("The Multiplication Result Is " + c);
+                } }
+        });
+        btndiv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (txt1.getText().toString().equals("")) {
+                    Toast.makeText(MainActivity.this, "Please Enter Number",
+                            Toast.LENGTH_SHORT).show();
+                } else if (txt2.getText().toString().equals("")) {
+                    Toast.makeText(MainActivity.this, "Please Enter Number",
+                            Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    float a, b, c;
+                    a = Float.parseFloat(txt1.getText().toString());
+                    b = Float.parseFloat(txt2.getText().toString());
+                    c = a/b;
+                    result.setText("The Division Result Is " + c);
+                }
+            }
+        });
     }
-
-    resultTextView.setText("Result: " + result);
-}
 }
 ```
-
-Program to print the text “calculator operation”.
-
-Developed by: Anbuselvan A
-
-Registeration Number : 212221040013
-
-
 ## OUTPUT
 
-![AM](https://github.com/Anbuselvan04/Mobile-Application-Development/assets/119410896/a5935bf8-ac38-4cbc-bd15-8a691d533740)
-![MA](https://github.com/Anbuselvan04/Mobile-Application-Development/assets/119410896/af68a8d5-6427-4eba-b3a4-cb9c611d0b85)
-![OP](https://github.com/Anbuselvan04/Mobile-Application-Development/assets/119410896/181b8132-94a4-4d5e-8092-29e9102b91e2)
+![image](https://github.com/Naveen-154/Mobile-Application-Development/assets/114643271/40a0d11b-2858-4d4e-b0e4-6d2efcf3c82d)
 
+![image](https://github.com/Naveen-154/Mobile-Application-Development/assets/114643271/30fdb3d7-e227-4090-a2b5-8812dda25674)
+![image](https://github.com/Naveen-154/Mobile-Application-Development/assets/114643271/8f68671f-161e-440a-af7b-b5481368360c)
 
 
 ## RESULT
