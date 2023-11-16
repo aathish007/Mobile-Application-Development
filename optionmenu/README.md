@@ -1,38 +1,34 @@
-# MAD-EXP-10-Develop an Android Application to create a option Menu to Display Menu Items using Android Studio.
+# Ex.No:10 To create a option menu to display menu items.
+
 
 ## AIM:
 
-To create an option menu to display menu items using Android Studio.
+To create a option menu to display menu items using Android Studio.
 
 ## EQUIPMENTS REQUIRED:
 
 Latest Version Android Studio
 
 ## ALGORITHM:
-
-Step 1: Open Android Studio and then click on File -> New -> New project.
-
-Step 2: Then type the Application name as HelloWorld and click Next. 
-
-Step 3: Then select the Minimum SDK as shown below and click Next.
-
-Step 4: Then select the Empty Activity and click Next. Finally click Finish.
-
-Step 5: Design layout in activity_main.xml.
-
-Step 6: Display message give in MainActivity file.
-
-Step 7: Save and run the application.
+```
+Open Android Studio and then click on File -> New -> New project.
+Then type the Application name as HelloWorld and click Next.
+Then select the Minimum SDK as shown below and click Next.
+Then select the Empty Activity and click Next. Finally click Finish.
+Design layout in activity_main.xml.
+Display message give in MainActivity file.
+Save and run the application.
+```
 
 ## PROGRAM:
 ```
 /*
 Program to print the text “optionmenu”.
-Developed by: S.AATHISH
-Registration Number: 212221040002
+Developed by:AATHISH S
+Registeration Number :212221040002
 */
 ```
-activity_main.xml :
+## activity_main.xml
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -53,21 +49,11 @@ activity_main.xml :
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
-option.xml :
+## MainActivity.java
 ```
-<?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="Item 1" />
-    <item android:title="Item 2" />
-    <item android:title="Item 3" />
-</menu>
-```
-MainActivity.java :
-```
-package com.example.menuoption;
+package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -86,11 +72,22 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
-## OUTPUT
+## option.xml
+```
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Item 1" />
+    <item android:title="Item 2" />
+    <item android:title="Item 3" />
+</menu>
+```
 
-![image](https://github.com/Siddarthan999/MAD-EXP-10-Develop-an-Android-Application-to-Create-a-Option-Menu-to-Display-Menu-Items/assets/91734840/e5634791-56b4-4011-b3e9-9bb772e79872)
-![image](https://github.com/Siddarthan999/MAD-EXP-10-Develop-an-Android-Application-to-Create-a-Option-Menu-to-Display-Menu-Items/assets/91734840/6b5239b8-2b62-4d17-9949-4658bfa88d68)
-![image](https://github.com/Siddarthan999/MAD-EXP-10-Develop-an-Android-Application-to-Create-a-Option-Menu-to-Display-Menu-Items/assets/91734840/a7b34f8e-93f9-4685-9960-383ad17c271e)
+## OUTPUT
+![image](https://github.com/Naveen-154/Mobile-Application-Development/assets/114643271/eb63157d-bb26-49c6-a99f-0dfc3416ceba)
+![image](https://github.com/Naveen-154/Mobile-Application-Development/assets/114643271/3a5a7ca3-ceb8-4591-9b11-addc01257f41)
+
+
+
 
 ## RESULT
-Thus, a Simple Android Application to create aN option menu to display menu items using Android Studio is developed and executed successfully.
+Thus a Simple Android Application to create a option menu to display menu items using Android Studio is developed and executed successfully.
