@@ -10,94 +10,118 @@ To create a navigate button using Implicit Intent to display the google page usi
 Latest Version Android Studio
 
 ## ALGORITHM:
+Step 1: Open Android Stdio and then click on File -> New -> New project.
 
+Step 2: Then type the Application name as HelloWorld and click Next.
+
+Step 3: Then select the Minimum SDK as shown below and click Next.
+
+Step 4: Then select the Empty Activity and click Next. Finally click Finish.
+
+Step 5: Design layout in activity_main.xml.
+
+Step 6: Display message give in MainActivity file.
+
+Step 7: Save and run the application.
 
 ## PROGRAM:
 ```
-
+/*
 Program to print the text “Implicitintent”.
 Developed by: AATHISH S
-Registeration Number :212221040002
-
+Registeration Number : 212221040002
+*/
 ```
-
-## ACTIVITYMAIN.XML:
-```
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+**Activity_xml File:**
+    
+    
+    <?xml version="1.0" encoding="utf-8"?>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="52dp"
+        android:text="@string/enter_an_url"
+        android:textSize="26sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ExtraText" />
+
+    <EditText
+        android:id="@+id/E1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        android:textColor="#2196F3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.791"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NAVIGATE"
+        android:layout_marginBottom="484dp"
+        android:text="Jump Into"
+        app:backgroundTint="#4CAF50"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
-        app:layout_constraintVertical_bias="0.2"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintHorizontal_bias="0.462"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Enter the Link..."
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499"
-        tools:ignore="HardcodedText,LabelFor,SpeakableTextPresentCheck" />
-</androidx.constraintlayout.widget.ConstraintLayout>
 
-```
-##MAINACTIVITY.JAVA
-```
-package com.example.implicit;
-import androidx.appcompat.app.AppCompatActivity;
-import android.content.Intent;
-import android.net.Uri;
-import android.widget.Button;
-import android.widget.EditText;
-import android.os.Bundle;
-public class MainActivity extends AppCompatActivity {
+    </androidx.constraintlayout.widget.ConstraintLayout>
+        
+**MainActivity.java File:**
+    
+    package com.example.intent_implementation;
+
+    import androidx.appcompat.app.AppCompatActivity;
+
+    import android.content.Intent;
+    import android.net.Uri;
+    import android.os.Bundle;
+    import android.view.View;
+    import android.widget.Button;
+    import android.widget.EditText;
+
+    public class MainActivity extends AppCompatActivity {
     Button button;
-    EditText editText;
+    EditText e1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         button = findViewById(R.id.button);
-        editText = findViewById(R.id.editTextTextPersonName);
+        e1 = findViewById(R.id.E1);
         button.setOnClickListener(view -> {
-            String url = editText.getText().toString();
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-            startActivity(intent);
+            String url = e1.getText().toString();
+            Intent i1 = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            startActivity(i1);
         });
-    }}
-```
+    }
+    }
 
-## OUTPUT
-![image](https://github.com/Naveen-154/Mobile-Application-Development/assets/114643271/399e2b26-73be-4035-a339-e2003a310a6f)
-![image](https://github.com/Naveen-154/Mobile-Application-Development/assets/114643271/835ef6fd-6ff7-42dd-90e2-0f0163ccda19)
-![WhatsApp Image 2023-09-19 at 14 28 35](https://github.com/Naveen-154/Mobile-Application-Development/assets/114643271/ddb9fd1b-8c12-41f8-a363-b67a024137c7)
-
-
-
+## OUTPUT:
+  
+ ![image](https://github.com/NaveenKumar-008/Mobile-Application-Development/assets/128135244/9ae6766d-2ad9-4006-8240-aea745a93010)
+ ![image](https://github.com/NaveenKumar-008/Mobile-Application-Development/assets/128135244/376fc7b5-bfe1-4044-8b87-3156fddd330b) 
+![image](https://github.com/NaveenKumar-008/Mobile-Application-Development/assets/128135244/5599c248-4640-49b2-b48a-973ed036f54e)
 
 
-## RESULT
+## RESULT:
 Thus a Simple Android Application create a navigate button using Implicit Intent to display the google page using Android Studio is developed and executed successfully.
